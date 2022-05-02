@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - 漫步原野</title>
+        <link>https://manbuyuanye.github.io/posts/</link>
+        <description>所有文章 | 漫步原野</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shenxiaojian@hotmail.com (漫步原野)</managingEditor>
+            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 02 May 2022 17:15:34 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>IPv4</title>
+    <link>https://manbuyuanye.github.io/posts/ipv4.html/</link>
+    <pubDate>Mon, 02 May 2022 17:15:34 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://manbuyuanye.github.io/posts/ipv4.html/</guid>
+    <description><![CDATA[网络 IPv4简介 IPv4报文头字段： 版本 头长度 服务类型 总长度 标识 标志 片偏移 生存时间TTL 上层协议 头部校验和 源IP 目的IP options选项（]]></description>
+</item></channel>
+</rss>
