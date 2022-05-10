@@ -4,7 +4,14 @@
         <link>https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
         <description>网络 - 标签 - 漫步原野</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shenxiaojian@hotmail.com (漫步原野)</managingEditor>
-            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 02 May 2022 17:15:34 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 May 2022 00:27:16 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>华为命令参考</title>
+    <link>https://manbuyuanye.github.io/posts/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html/</link>
+    <pubDate>Wed, 11 May 2022 00:27:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://manbuyuanye.github.io/posts/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html/</guid>
+    <description><![CDATA[用户 console登录配置 password登录 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 [AR1]user-interface console 0 [AR1-ui-console0]authentication-mode password Please configure the login password (maximum length 16):password123 [AR1-ui-console0] [AR1-ui-console0] [AR1-ui-console0] [AR1-ui-console0]dis th [V200R003C00] # user-interface con 0 authentication-mode password set authentication]]></description>
+</item><item>
     <title>IPv4</title>
     <link>https://manbuyuanye.github.io/posts/ipv4.html/</link>
     <pubDate>Mon, 02 May 2022 17:15:34 &#43;0800</pubDate>
