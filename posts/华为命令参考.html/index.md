@@ -65,4 +65,29 @@ return
 [AR2-aaa]ret
 <AR2>save
 ```
-
+### ssh登录
+配置vty接口
+```
+[AR2]user-interface vty 0 4
+[AR2-ui-vty0-4]authentication-mode aaa
+[AR2-ui-vty0-4]protocol inbound ssh
+```
+配置aaa用户
+```
+[AR2-ui-vty0-4]aaa
+[AR2-aaa]local-user sshuser password cipher password123
+[AR2-aaa]local-user sshuser privilege level 15
+[AR2-aaa]local-user sshuser service-type ssh
+[AR2-aaa]local-user sshuser idle-timeout 10
+[AR2]ssh user sshuser authentication-type password 
+```
+配置ssh
+```
+[AR2]stelnet server enable 
+[AR2]rsa local-key-pair create 
+<AR2>save
+```
+注：若在网络设备AR1登录AR2，则AR1需要作为ssh客户端，才能登陆AR2
+```
+[AR1]ssh client first-time enable
+```

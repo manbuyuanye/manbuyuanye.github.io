@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  213 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  333 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/","datePublished": "2022-05-11T00:27:16+08:00","dateModified": "2022-05-11T00:27:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,7 +91,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">华为命令参考</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 213 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 333 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -103,6 +103,7 @@
     <li><a href="#用户">用户</a>
       <ul>
         <li><a href="#console登录配置">console登录配置</a></li>
+        <li><a href="#ssh登录">ssh登录</a></li>
       </ul>
     </li>
   </ul>
@@ -233,6 +234,61 @@
 </span></span><span class="line"><span class="cl">return
 </span></span><span class="line"><span class="cl">[AR2-aaa]ret
 </span></span><span class="line"><span class="cl">&lt;AR2&gt;save
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="ssh登录">ssh登录</h3>
+<p>配置vty接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[AR2]user-interface vty 0 4
+</span></span><span class="line"><span class="cl">[AR2-ui-vty0-4]authentication-mode aaa
+</span></span><span class="line"><span class="cl">[AR2-ui-vty0-4]protocol inbound ssh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置aaa用户</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[AR2-ui-vty0-4]aaa
+</span></span><span class="line"><span class="cl">[AR2-aaa]local-user sshuser password cipher password123
+</span></span><span class="line"><span class="cl">[AR2-aaa]local-user sshuser privilege level 15
+</span></span><span class="line"><span class="cl">[AR2-aaa]local-user sshuser service-type ssh
+</span></span><span class="line"><span class="cl">[AR2-aaa]local-user sshuser idle-timeout 10
+</span></span><span class="line"><span class="cl">[AR2]ssh user sshuser authentication-type password 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置ssh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[AR2]stelnet server enable 
+</span></span><span class="line"><span class="cl">[AR2]rsa local-key-pair create 
+</span></span><span class="line"><span class="cl">&lt;AR2&gt;save
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注：若在网络设备AR1登录AR2，则AR1需要作为ssh客户端，才能登陆AR2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[AR1]ssh client first-time enable
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
