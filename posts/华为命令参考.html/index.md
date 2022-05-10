@@ -77,7 +77,7 @@ return
 [AR2-ui-vty0-4]aaa
 [AR2-aaa]local-user sshuser password cipher password123
 [AR2-aaa]local-user sshuser privilege level 15
-[AR2-aaa]local-user sshuser service-type ssh
+[AR2-aaa]local-user sshuser service-type ssh terminal
 [AR2-aaa]local-user sshuser idle-timeout 10
 [AR2]ssh user sshuser authentication-type password 
 ```
