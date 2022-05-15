@@ -22,6 +22,18 @@ D类地址用于组播，D类地址的进一步分类：
 |④|239段|本地管理的Any-Source临时组播组地址|
 真正可用的其实是③。
 #### 组播MAC地址
+组播MAC地址：最高字节的最低比特位为1.  
+IPv4组播MAC地址：前24位为0x01005e，第25位为0，后23位等于组播IP的后23位。  
+IPv6组播MAC地址：前16位为0x3333，后32位等于组播IPv6的后32位。  
+  
+MAC地址前两位
+![MAC.jpg](https://s2.loli.net/2022/05/15/kE3AnNdI1YGWzB4.jpg)  
+MAC地址最高字节的最低位
+![组播MAC地址.png](https://s2.loli.net/2022/05/15/uhQGifc4Iw1ST36.png)  
+组播IPv4与组播MAC映射关系
+![组播IPv4与组播MAC映射关系.png](https://s2.loli.net/2022/05/15/aLk7rMObq5H8FDN.png)  
+组播IPv6与组播MAC映射关系
+![组播IPv6与组播MAC映射关系.png](https://s2.loli.net/2022/05/15/2e8KZ1aONmhpUA3.png)
 
 ### 数据的转发原理
 
