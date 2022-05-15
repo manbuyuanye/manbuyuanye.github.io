@@ -19,7 +19,7 @@ D类地址用于组播，D类地址的进一步分类：
 |①|224.0.0.0~224.0.0.255|为协议预留的永久组地址|
 |②|232段|Source-Specific临时组播组地址|
 |③|除①②外的224-238段|Any-Source临时组播组地址|
-|④|239段|本地管理的Any-Source临时组播组地址|
+|④|239段|本地管理的Any-Source临时组播组地址|  
 真正可用的其实是③。
 #### 组播MAC地址
 组播MAC地址：最高字节的最低比特位为1。一个组播MAC可能对应多个组播IP。  
@@ -34,9 +34,12 @@ MAC地址最高字节的最低位
 ![组播IPv4与组播MAC映射关系.png](https://s2.loli.net/2022/05/15/aLk7rMObq5H8FDN.png)  
 组播IPv6与组播MAC映射关系  
 ![组播IPv6与组播MAC映射关系.png](https://s2.loli.net/2022/05/15/2e8KZ1aONmhpUA3.png)
-
+#### 其他
+组播服务模型，分为：ASM（Any-Source Model，任意源服务模型）和SSM（Source-Specific，指定源服务模型）。ASM，源IP任意，目的组播IP唯一。SSM，源IP唯一，目的组播IP任意。
 ### 数据的转发原理
-
+#### RPF
+RPF,Reverse Path Forwarding,反向路由转发
+组播数据存在的问题：①环路；②转发时采用了次优路径。
 ### 反向路径转发的原理
 
 ### 其他
