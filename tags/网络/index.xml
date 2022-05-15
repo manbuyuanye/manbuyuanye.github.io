@@ -4,7 +4,14 @@
         <link>https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
         <description>网络 - 标签 - 漫步原野</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shenxiaojian@hotmail.com (漫步原野)</managingEditor>
-            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 May 2022 01:52:13 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 May 2022 15:29:37 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>组播和IGMP</title>
+    <link>https://manbuyuanye.github.io/posts/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html/</link>
+    <pubDate>Sun, 15 May 2022 15:29:37 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://manbuyuanye.github.io/posts/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html/</guid>
+    <description><![CDATA[组播 组播定义和地址结构（IP and MAC） 定义 组播是在一台源IP主机和多台IP主机之间进行，中间的网络设备根据接收者的需要，有选择性地对数据进行]]></description>
+</item><item>
     <title>名词备忘录</title>
     <link>https://manbuyuanye.github.io/posts/%E5%90%8D%E8%AF%8D%E5%A4%87%E5%BF%98%E5%BD%95.html/</link>
     <pubDate>Wed, 11 May 2022 01:52:13 &#43;0800</pubDate>
