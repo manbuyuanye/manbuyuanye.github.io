@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  1293 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  2058 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/","datePublished": "2022-05-15T15:29:37+08:00","dateModified": "2022-05-15T15:29:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">组播和IGMP</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1293 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2058 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -112,6 +112,21 @@
         </li>
         <li><a href="#数据的转发原理">数据的转发原理</a></li>
         <li><a href="#其他-1">其他</a></li>
+      </ul>
+    </li>
+    <li><a href="#igmp">IGMP</a>
+      <ul>
+        <li><a href="#igmp基本原理和配置">IGMP基本原理和配置</a></li>
+        <li><a href="#igmpv1v2v3">IGMPv1、v2、v3</a>
+          <ul>
+            <li><a href="#igmpv1">IGMPv1</a></li>
+            <li><a href="#igmpv2">IGMPv2</a></li>
+            <li><a href="#igmpv3">IGMPv3</a></li>
+          </ul>
+        </li>
+        <li><a href="#igmp-snooping">IGMP Snooping</a></li>
+        <li><a href="#igmp-ssm-mapping">IGMP SSM Mapping</a></li>
+        <li><a href="#igmp代理">IGMP代理</a></li>
       </ul>
     </li>
   </ul>
@@ -260,6 +275,97 @@ S在<strong>单播路由表或MBGP路由表或组播静态路由表中对应的�
 <h3 id="其他-1">其他</h3>
 <p>冲突域是第一层<br>
 广播域是第二层</p>
+<h2 id="igmp">IGMP</h2>
+<h3 id="igmp基本原理和配置">IGMP基本原理和配置</h3>
+<p>1、IGMP两张表：IGMP组表项、IGMP路由表项。<br>
+<strong>IGMP组表项</strong></p>
+<table>
+<thead>
+<tr>
+<th>组播组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+</tr>
+<tr>
+<td>G2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IGMP路由表项</strong></p>
+<table>
+<thead>
+<tr>
+<th>组播组</th>
+<th>出接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>IF1</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>IF2</td>
+</tr>
+</tbody>
+</table>
+<p>2、在最后一跳组播路由器（组播叶子路由器）上，IGMP组表项、IGMP路由表项、PIM路由表（组播协议路由表）可以汇总后形成组播路由表。<br>
+其中，<strong>IGMP组表项</strong>又可为<strong>PIM路由表</strong>提供<strong>组播组地址</strong>信息，<strong>IGMP路由表项</strong>又可为<strong>PIM路由表</strong>提供<strong>出接口</strong>信息。</p>
+<h3 id="igmpv1v2v3">IGMPv1、v2、v3</h3>
+<h4 id="igmpv1">IGMPv1</h4>
+<p>1、原理：v1基于<strong>查询和响应机制</strong>完成组播组管理。<br>
+2、查询和响应机制<br>
+普遍组查询报文（General Query）：IGMP查询器发送General Query给所有主机和路由器，用户查询<strong>组播组及其成员</strong>。该报文为组播报文。<br>
+成员关系报告报文（Report）：主机收到General Query后，发送Report，用于<strong>申请加入某个组播组</strong>或者<strong>应答查询报文</strong>。该报文为组播报文。<br>
+3、IGMP普遍组查询报文与成员关系报告报文格式： </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Version</td>
+<td style="text-align:center">Type</td>
+<td style="text-align:center">Unused</td>
+<td style="text-align:center">Checksum</td>
+</tr>
+<tr>
+<td style="text-align:center">Group Address</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>最主要的三个字段：<br>
+Version：IGMP版本，值为1。<br>
+Type：报文类型。0x11：普遍组查询报文；0x12：成员关系报告报文。<br>
+Group Address：组播组地址。Type为0x11时，该字段为0；Type为0x12时，该字段为成员加入的组播组地址。<br>
+4、IGMP查询器<br>
+一个多路访问网络里，只需一个组播路由器发送General Query，该路由器称为<strong>IGMP查询器</strong>。
+IGMP查询器选举机制：IGMPv1将PIM选举的唯一的<strong>组播信息转发者（Assert Winner或DR）<strong>作为</strong>IGMPv1查询器</strong>。<br>
+IGMP查询器和非查询器均能收到成员关系报告报文，因此均能形成IGMP组表项和IGMP路由表项。（一个查多个收）<br>
+IGMPv1组成员需要离组时，不会发离开组消息，也不会回应普遍组查询报文。</p>
+<h4 id="igmpv2">IGMPv2</h4>
+<h4 id="igmpv3">IGMPv3</h4>
+<h3 id="igmp-snooping">IGMP Snooping</h3>
+<h3 id="igmp-ssm-mapping">IGMP SSM Mapping</h3>
+<h3 id="igmp代理">IGMP代理</h3>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
