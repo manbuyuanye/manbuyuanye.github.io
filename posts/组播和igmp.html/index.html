@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  2058 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  3071 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/","datePublished": "2022-05-15T15:29:37+08:00","dateModified": "2022-05-15T15:29:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">组播和IGMP</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2058 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3071 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -122,6 +122,7 @@
             <li><a href="#igmpv1">IGMPv1</a></li>
             <li><a href="#igmpv2">IGMPv2</a></li>
             <li><a href="#igmpv3">IGMPv3</a></li>
+            <li><a href="#igmp版本差异">IGMP版本差异</a></li>
           </ul>
         </li>
         <li><a href="#igmp-snooping">IGMP Snooping</a></li>
@@ -317,11 +318,11 @@ S在<strong>单播路由表或MBGP路由表或组播静态路由表中对应的�
 其中，<strong>IGMP组表项</strong>又可为<strong>PIM路由表</strong>提供<strong>组播组地址</strong>信息，<strong>IGMP路由表项</strong>又可为<strong>PIM路由表</strong>提供<strong>出接口</strong>信息。</p>
 <h3 id="igmpv1v2v3">IGMPv1、v2、v3</h3>
 <h4 id="igmpv1">IGMPv1</h4>
-<p>1、原理：v1基于<strong>查询和响应机制</strong>完成组播组管理。<br>
-2、查询和响应机制<br>
+<p><strong>1、原理：<strong>v1基于</strong>查询和响应机制</strong>完成组播组管理。<br>
+<strong>2、查询和响应机制</strong><br>
 普遍组查询报文（General Query）：IGMP查询器发送General Query给所有主机和路由器，用户查询<strong>组播组及其成员</strong>。该报文为组播报文。<br>
 成员关系报告报文（Report）：主机收到General Query后，发送Report，用于<strong>申请加入某个组播组</strong>或者<strong>应答查询报文</strong>。该报文为组播报文。<br>
-3、IGMP普遍组查询报文与成员关系报告报文格式： </p>
+<strong>3、IGMPv1普遍组查询报文与成员关系报告报文格式：</strong> </p>
 <table>
 <thead>
 <tr>
@@ -350,13 +351,141 @@ S在<strong>单播路由表或MBGP路由表或组播静态路由表中对应的�
 Version：IGMP版本，值为1。<br>
 Type：报文类型。0x11：普遍组查询报文；0x12：成员关系报告报文。<br>
 Group Address：组播组地址。Type为0x11时，该字段为0；Type为0x12时，该字段为成员加入的组播组地址。<br>
-4、IGMP查询器<br>
+<strong>4、IGMP查询器</strong><br>
 一个多路访问网络里，只需一个组播路由器发送General Query，该路由器称为<strong>IGMP查询器</strong>。
 IGMP查询器选举机制：IGMPv1将PIM选举的唯一的<strong>组播信息转发者（Assert Winner或DR）<strong>作为</strong>IGMPv1查询器</strong>。<br>
 IGMP查询器和非查询器均能收到成员关系报告报文，因此均能形成IGMP组表项和IGMP路由表项。（一个查多个收）<br>
 IGMPv1组成员需要离组时，不会发离开组消息，也不会回应普遍组查询报文。</p>
 <h4 id="igmpv2">IGMPv2</h4>
+<p><strong>1、IGMPv2报文格式</strong> </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Type</td>
+<td style="text-align:center">Max Response Time</td>
+<td style="text-align:center">Checksum</td>
+</tr>
+<tr>
+<td style="text-align:center">Group Address</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Type：0x11是查询报文；0x12是IGMPv1成员关系报文；0x16是IGMPv2成员关系报文；0x17是成员离开报文。<br>
+Max Response Time：普遍组查询默认为10秒，特定组查询默认为1秒。<br>
+Group Address：普遍组查询报文中为<strong>0</strong>；特定组查询报文中为<strong>该特定组地址</strong>；成员关系报告或者离开组的报文中为<strong>需要报告或者离开的地址</strong>。<br>
+<strong>2、IGMPv2与v1的相同点</strong><br>
+v2与v1组成员加组机制基本相同；<br>
+v2与v1兼容。<br>
+<strong>3、IGMPv2相比v1的改进</strong><br>
+v2增加了离开组机制；<br>
+v2增加了查询器选举机制。<br>
+<strong>4、IGMPv2组成员离开机制</strong>
+为了IGMP改善组成员离开机制，v2相比v1新增两种报文格式：
+<strong>特定组查询报文（Group-Specific Query）</strong>：用于查询器查询特定组播组是否存在成员，目的地址为该组播组的组播地址。<br>
+<strong>成员离开报文（Leave）</strong>：组成员离开组播组时对查询器发出的报文，用于宣告自己离开了特定组播组，目的地址为224.0.0.2。<br>
+<strong>5、IGMPv2查询器选举机制</strong><br>
+接口IP地址最小的路由器成为查询器。<br>
+选举出查询器后，非查询器会启动一个定时器（Other Querier Present Timer），只要在超时时间内收到查询器的查询报文，就重置该定时器；否则，认为该查询器失效，重新发起查询器选举过程。</p>
 <h4 id="igmpv3">IGMPv3</h4>
+<p><strong>1、IGMPv3与v2的相同点</strong><br>
+查询器选举机制一致；<br>
+使用普遍组查询报文查询组成员加组信息；<br>
+使用特定组查询报文查询特定组播的成员信息。<br>
+<strong>2、IGMPv3的改进</strong><br>
+新增<strong>特定源组查询报文（Group-and-Source-Specific Query）</strong>；<br>
+成员关系报告报文新增<strong>想要接收的来自哪些组播源的数据</strong>；<br>
+删除成员关系报告报文抑制机制；<br>
+没有定义专门的成员离开报文，成员离开通过特定类型的报告报文来传达。<br>
+<strong>3、查询报文格式</strong> </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Type</td>
+<td style="text-align:center">Max Response Code</td>
+<td style="text-align:center">Checksum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Group Address</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Resv</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">QRV</td>
+<td style="text-align:center">QQIC</td>
+<td style="text-align:center">Number of Source(N)</td>
+</tr>
+<tr>
+<td style="text-align:center">Source Address(1)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Source Address(2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Source Address(N)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>字段说明：<br>
+Type：0x11；<br>
+Max Response Code：最大响应时间，成员主机在收到查询报文后的回应时间要求；<br>
+Group Address：组播组地址，在<strong>普遍组查询报文</strong>中该字段为<strong>0</strong>，在<strong>特定组查询报文</strong>和<strong>特定源组查询报文</strong>中该字段为<strong>要查询的特定组播组地址</strong>。<br>
+Number of Source：报文中包含的组播源数量，在<strong>普遍组查询报文</strong>和<strong>特定组查询报文</strong>中该字段为<strong>0</strong>，在<strong>特定源组查询报文</strong>中该字段<strong>非0</strong>，该字段值大小受到所在网络MTU限制。<br>
+<strong>4、成员关系报告报文格式</strong></p>
+<p><strong>5、组成员加组机制</strong></p>
+<p><strong>6、组成员离开机制</strong></p>
+<h4 id="igmp版本差异">IGMP版本差异</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/23/RqPGe7EcgtDS982.jpg"
+        data-srcset="https://s2.loli.net/2022/05/23/RqPGe7EcgtDS982.jpg, https://s2.loli.net/2022/05/23/RqPGe7EcgtDS982.jpg 1.5x, https://s2.loli.net/2022/05/23/RqPGe7EcgtDS982.jpg 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/23/RqPGe7EcgtDS982.jpg"
+        title="IGMP版本.jpg" /><br>
+来自HCIP，若是有侵权可删</p>
 <h3 id="igmp-snooping">IGMP Snooping</h3>
 <h3 id="igmp-ssm-mapping">IGMP SSM Mapping</h3>
 <h3 id="igmp代理">IGMP代理</h3>
