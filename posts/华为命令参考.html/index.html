@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  334 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  396 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%BA%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/","datePublished": "2022-05-11T00:27:16+08:00","dateModified": "2022-05-11T00:27:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,7 +91,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">华为命令参考</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 334 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 396 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -106,6 +106,8 @@
         <li><a href="#ssh登录">ssh登录</a></li>
       </ul>
     </li>
+    <li><a href="#端口范围设置">端口范围设置</a></li>
+    <li><a href="#igmp配置">IGMP配置</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="用户">用户</h2>
@@ -291,6 +293,38 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[AR1]ssh client first-time enable
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="端口范围设置">端口范围设置</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">port-group group-member g 0/0/1 to g0/0/10
+</span></span><span class="line"><span class="cl">设置vlan
+</span></span><span class="line"><span class="cl">port default vlan 10
+</span></span><span class="line"><span class="cl">port trunk pvid vlan 10
+</span></span><span class="line"><span class="cl">port hybrid pvid vlan 10
+</span></span><span class="line"><span class="cl">设置连接类型
+</span></span><span class="line"><span class="cl">port link-type access
+</span></span><span class="line"><span class="cl">port link-type trunk
+</span></span><span class="line"><span class="cl">port link-type hybrid
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="igmp配置">IGMP配置</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -319,7 +353,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://manbuyuanye.github.io/" target="_blank">漫步原野</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

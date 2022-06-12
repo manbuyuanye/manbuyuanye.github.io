@@ -4,7 +4,14 @@
         <link>https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
         <description>网络 - 标签 - 漫步原野</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shenxiaojian@hotmail.com (漫步原野)</managingEditor>
-            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 May 2022 15:29:37 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shenxiaojian@hotmail.com (漫步原野)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 02 Jun 2022 11:43:17 &#43;0800</lastBuildDate><atom:link href="https://manbuyuanye.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>随记</title>
+    <link>https://manbuyuanye.github.io/posts/%E9%9A%8F%E8%AE%B0.html/</link>
+    <pubDate>Thu, 02 Jun 2022 11:43:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://manbuyuanye.github.io/posts/%E9%9A%8F%E8%AE%B0.html/</guid>
+    <description><![CDATA[SVI Cisco多层交换中提到了一个SVI接口，路由接口。在多层交换机上可以将端口配置成不同类型的接口。 其中SVI接口 类似于 interface Vlan10 ip address 192.168.20.1 255.255.255.0 secondary ip address 192.168.10.1]]></description>
+</item><item>
     <title>组播和IGMP</title>
     <link>https://manbuyuanye.github.io/posts/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html/</link>
     <pubDate>Sun, 15 May 2022 15:29:37 &#43;0800</pubDate>

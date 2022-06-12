@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="组播和IGMP"/>
 <meta name="twitter:description" content="组播 组播定义和地址结构（IP and MAC） 定义 组播是在一台源IP主机和多台IP主机之间进行，中间的网络设备根据接收者的需要，有选择性地对数据进行"/>
 <meta name="application-name" content="漫步原野">
-<meta name="apple-mobile-web-app-title" content="漫步原野"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://s2.loli.net/2022/05/01/AlIfMP4cp5G2xj6.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://manbuyuanye.github.io/posts/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html/" /><link rel="prev" href="https://manbuyuanye.github.io/posts/%E5%90%8D%E8%AF%8D%E5%A4%87%E5%BF%98%E5%BD%95.html/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="漫步原野"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://s2.loli.net/2022/05/01/AlIfMP4cp5G2xj6.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://manbuyuanye.github.io/posts/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html/" /><link rel="prev" href="https://manbuyuanye.github.io/posts/%E5%90%8D%E8%AF%8D%E5%A4%87%E5%BF%98%E5%BD%95.html/" /><link rel="next" href="https://manbuyuanye.github.io/posts/%E9%9A%8F%E8%AE%B0.html/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  3071 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  5485 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/","datePublished": "2022-05-15T15:29:37+08:00","dateModified": "2022-05-15T15:29:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">组播和IGMP</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3071 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5485 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -130,6 +130,7 @@
         <li><a href="#igmp代理">IGMP代理</a></li>
       </ul>
     </li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="组播">组播</h2>
@@ -473,9 +474,28 @@ Type：0x11；<br>
 Max Response Code：最大响应时间，成员主机在收到查询报文后的回应时间要求；<br>
 Group Address：组播组地址，在<strong>普遍组查询报文</strong>中该字段为<strong>0</strong>，在<strong>特定组查询报文</strong>和<strong>特定源组查询报文</strong>中该字段为<strong>要查询的特定组播组地址</strong>。<br>
 Number of Source：报文中包含的组播源数量，在<strong>普遍组查询报文</strong>和<strong>特定组查询报文</strong>中该字段为<strong>0</strong>，在<strong>特定源组查询报文</strong>中该字段<strong>非0</strong>，该字段值大小受到所在网络MTU限制。<br>
-<strong>4、成员关系报告报文格式</strong></p>
-<p><strong>5、组成员加组机制</strong></p>
-<p><strong>6、组成员离开机制</strong></p>
+<strong>4、成员关系报告报文格式</strong><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/06/09/3xFuDGJNp596vYs.png"
+        data-srcset="https://s2.loli.net/2022/06/09/3xFuDGJNp596vYs.png, https://s2.loli.net/2022/06/09/3xFuDGJNp596vYs.png 1.5x, https://s2.loli.net/2022/06/09/3xFuDGJNp596vYs.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/06/09/3xFuDGJNp596vYs.png"
+        title="IGMPv3成员关系报告报文格式.png" /><br>
+来自HCIP，若是有侵权可删<br>
+IGMPv3成员关系报告报文重要字段说明：
+Type：报文类型，取值为0x22。
+Number of Group Records：报文中包含的组记录的数量。
+Group Record：组记录。</p>
+<p>Record Type字段：<br>
+当前状态报告：MODE_IS_INCLUDE | MODE_IS_EXCLUDE<br>
+过滤模式改变报告：CHANGE_TO_INCLUDE | CHANGE_TO_EXCLUDE<br>
+源列表改变报告：ALLOW_NEW_SOURCES | BLOCK_OLD_SOURCES <br>
+<strong>5、组成员加组机制</strong><br>
+IGMP查询器发送普遍组查询报文&ndash;组播组成员发送成员关系报告报文（内含加组信息与组播源信息）&ndash;加组成功<br>
+<strong>6、组成员离开机制</strong><br>
+IGMPv3没有专门的成员离开报文，成员离开需要通过<strong>组成员关系报告</strong>实现。</p>
 <h4 id="igmp版本差异">IGMP版本差异</h4>
 <p><img
         class="lazyload"
@@ -487,8 +507,112 @@ Number of Source：报文中包含的组播源数量，在<strong>普遍组查�
         title="IGMP版本.jpg" /><br>
 来自HCIP，若是有侵权可删</p>
 <h3 id="igmp-snooping">IGMP Snooping</h3>
+<p>1、二层设备学习不到组播组地址的MAC地址表项。<br>
+2、为什么有IGMP Snooping<br>
+二层交换机收到组播信息（目的地址为组播地址）时，由于组播IP地址没有MAC，所以只能泛洪处理，降低了带宽利用率。为了解决这个问题，就有了IGMP Snooping。<br>
+3、二层组播转发表（L2-Multicast Forward-Table） </p>
+<table>
+<thead>
+<tr>
+<th>组播组信息</th>
+<th>出接口</th>
+<th>Out-Vlan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Router Port</td>
+<td>IF3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>*,239.0.0.1</td>
+<td>IF1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>*,239.0.0.2</td>
+<td>IF2</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>说明：<br>
+<strong>出接口</strong>分为<strong>路由器端口（Router Port）<strong>和</strong>成员端口（Member Port）</strong>，<strong>路由器端口</strong>又分为<strong>动态路由器端口</strong>和<strong>静态路由器端口</strong>，<strong>成员端口</strong>又分为<strong>动态成员端口</strong>和<strong>静态成员端口</strong>。<br>
+不管是路由器端口还是成员端口，<strong>手工配置</strong>的就是<strong>静态</strong>的，由<strong>协议自动生成</strong>的就是<strong>动态</strong>的。</p>
+<p>路由器端口形成后会启动老化计时器（默认180s）,当路由器端口收到新的普遍组查询后刷新该计时器。<br>
+成员端口形成后会启动老化计时器（默认180s）,当成员端口收到新的成员关系报告报文后刷新该计时器。<br>
+收到IGMP离开报文后，成员端口的老化定时器 = 健壮系数（默认2） x 特定组查询间隔（默认1s）。</p>
 <h3 id="igmp-ssm-mapping">IGMP SSM Mapping</h3>
+<p>1、为什么有IGMP SSM Mapping<br>
+现网中存在部分只能运行IGMPv1与IGMPv2的老旧终端，在部署SSM模式的组播时，由于IGMPv1与IGMPv2报文中无法携带组播源信息，因此无法使用SSM模式的组播网络。<br>
+IGMP SSM Mapping通过静态的将组播源与组播组进行绑定，<strong>使得IGMPv1与IGMPv2的组成员也能接入SSM组播网络</strong>。<br>
+IGMP SSM Mapping不处理IGMPv3的报告报文。为了保证同一网段运行任意版本IGMP的主机都能得到SSM服务，需要在与成员主机所在网段相连的组播路由器接口上运行IGMPv3。<br>
+2、SSM Mapping </p>
+<table>
+<thead>
+<tr>
+<th>SSM组播组</th>
+<th>组播源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>232.0.0.10</td>
+<td>4.0.0.4</td>
+</tr>
+</tbody>
+</table>
+<p>根据SSM Mapping生成IGMP Routing-Table<br>
+3、IGMP Routing-Table </p>
+<table>
+<thead>
+<tr>
+<th>IGMP表项</th>
+<th>出接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.0.0.4,232.0.0.10</td>
+<td>IF1</td>
+</tr>
+</tbody>
+</table>
 <h3 id="igmp代理">IGMP代理</h3>
+<p>1、为什么有IGMP代理<br>
+现网中可能存在一台IGMP查询器需要管理大量组成员的情况，大量成员主机频繁加入/离开组播组时，会产生大量的IGMP成员关系报告/离开报文，从而给IGMP查询器带来较大的处理压力。<br>
+<strong>通过IGMP Proxy功能可减少IGMP查询器接收IGMP成员关系报告/离开报文的数量，减轻IGMP查询器压力。</strong><br>
+IGMP Proxy通常被部署在IGMP查询器和成员主机之间的三层设备上。<br>
+2、IGMP代理实现方式<br>
+为了缓解IGMP查询器压力，IGMP Proxy设备将<strong>成员关系报告/离开报文汇聚后统一上送</strong>给IGMP查询器。<br>
+IGMP Proxy设备也可以代理IGMP查询器向成员主机<strong>发送查询报文</strong>，维护组成员关系，基于组成员关系进行组播转发。<br>
+IGMP Proxy减少成员关系报告报文的工作机制如下：<br>
+路由器接口作为IGMP接口，对下呈现为IGMP查询器，发送查询报文，处理成员关系报告报文，形成IGMP表项，并将成员关系报告从主机接口发送给上游的IGMP查询器。<br>
+当新用户加入同一个组播组时，IGMP Proxy设备不会再向IGMP查询器反馈成员关系报告报文，因此减少了成员关系报告报文数量。<br>
+IGMP代理设备收到某组播组的报告报文后，会在IGMP组表项中查找该组播组：<br>
+如果没有找到相应的组播组，IGMP代理设备会向接入设备发送针对该组播组的报告报文，并在组播转发表中添加该组播组；<br>
+如果找到相应的组播组，IGMP代理设备就不需要向接入设备发送报告报文。<br>
+IGMP Proxy减少离组报文的工作机制如下：<br>
+当组成员离开时，IGMP Proxy通过IGMP离组机制确定是否有特定组播组的组成员，当确定已经没有组成员后才发送离开报文给上游IGMP查询器。<br>
+IGMP代理设备收到某组播组G1的离开报文后，会向接收到该离开报文的接口发送一个特定组查询报文，检查该接口下是否还存在组播组G1的其他成员：<br>
+如果没有其他成员，在组播转发表中将该接口删除，然后判断组播组G1是否还有其他接口。
+如果没有，IGMP代理设备再会向接入设备发送针对该组播组的离开报文；<br>
+如果有，IGMP代理设备不向接入设备发送针对该组播组的离开报文；<br>
+如果有其他成员，IGMP代理设备会继续向该接口转发组播数据。</p>
+<p>3、IGMP Proxy定义了两类接口<br>
+<strong>主机接口（Host Interface）</strong>：IGMP Proxy设备上配置IGMP Proxy功能的接口，该接口一般面向IGMP查询器。<br>
+<strong>路由器接口（Router Interface）</strong>：IGMP Proxy设备上配置IGMP功能的接口，该接口一般面向组成员。</p>
+<h2 id="总结">总结</h2>
+<p>IGMP的主要作用是让组播网络感知组播组成员的位置和所加组播组，同时也能维护组成员的加组状态。<br>
+IGMP有三种版本：<br>
+IGMPv1：有基本的加组机制，但是组成员离开机制较为落后，同时没有独立的IGMP查询器选举机制。<br>
+IGMPv2：在IGMPv1的基础上改善了组成员离开机制，同时拥有了独立的IGMP查询器选举机制。<br>
+IGMPv3：在IGMPv2的基础上增加了对SSM组播的支持能力，可以告知组播网络需要接收来自哪个组播源的组播数据。<br>
+IGMP有诸多特性帮助IGMP在网络中高效运行：<br>
+IGMP Snooping：解决在以太网络中组播数据跨组播组泛洪的问题。<br>
+IGMP SSM Mapping：解决IGMPv1与IGMPv2组成员不能接入SSM组播网络的问题。<br>
+IGMP Proxy：解决大量组播组成员频繁上下线导致，IGMP查询器压力过大的问题。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -512,11 +636,12 @@ Number of Source：报文中包含的组播源数量，在<strong>普遍组查�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/%E5%90%8D%E8%AF%8D%E5%A4%87%E5%BF%98%E5%BD%95.html/" class="prev" rel="prev" title="名词备忘录"><i class="fas fa-angle-left fa-fw"></i>名词备忘录</a></div>
+    <div class="post-nav"><a href="/posts/%E5%90%8D%E8%AF%8D%E5%A4%87%E5%BF%98%E5%BD%95.html/" class="prev" rel="prev" title="名词备忘录"><i class="fas fa-angle-left fa-fw"></i>名词备忘录</a>
+            <a href="/posts/%E9%9A%8F%E8%AE%B0.html/" class="next" rel="next" title="随记">随记<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://manbuyuanye.github.io/" target="_blank">漫步原野</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -91,3 +91,20 @@ return
 ```
 [AR1]ssh client first-time enable
 ```
+
+## 端口范围设置
+```
+port-group group-member g 0/0/1 to g0/0/10
+设置vlan
+port default vlan 10
+port trunk pvid vlan 10
+port hybrid pvid vlan 10
+设置连接类型
+port link-type access
+port link-type trunk
+port link-type hybrid
+```
+## IGMP配置
+```
+
+```
