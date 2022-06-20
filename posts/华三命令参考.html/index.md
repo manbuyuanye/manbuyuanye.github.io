@@ -98,4 +98,37 @@ undo shutdown
 
 ```
 
+## 链路聚合
+### 二层静态聚合
+```
+[SWB]int bagg 1
+[SWB-Bridge-Aggregation1]qu
+[SWB]int range g1/0/1 to g1/0/3
+[SWB-if-range]port link-aggregation group 1
+[SWB-if-range]qu
+[SWB]int bagg 1
+[SWB-Bridge-Aggregation1]port link-type trunk
+[SWB-Bridge-Aggregation1]port trunk permit vlan 10 20
+
+```
+注意：必须先创建bagg端口，再加入现有端口，最后设置bagg端口属性。加入现有端口和设置bagg端口属性的顺序不能颠倒。
+### 二层动态聚合
+```
+[SWB]int bagg 1
+[SWB]link-aggregation mode dynamic
+[SWB-Bridge-Aggregation1]qu
+[SWB]int range g1/0/1 to g1/0/3
+[SWB-if-range]port link-aggregation group 1
+[SWB-if-range]qu
+[SWB]int bagg 1
+[SWB-Bridge-Aggregation1]port link-type trunk
+[SWB-Bridge-Aggregation1]port trunk permit vlan 10 20
+```
+### 二层聚合负载分担
+
+### 二层聚合边缘端口
+
+### 三层静态聚合
+
+### 三层动态聚合
 

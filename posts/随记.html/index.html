@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E9%9A%8F%E8%AE%B0.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络","wordcount":  279 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络","wordcount":  551 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E9%9A%8F%E8%AE%B0.html\/","datePublished": "2022-06-02T11:43:17+08:00","dateModified": "2022-06-02T11:43:17+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">随记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-02">2022-06-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 279 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-02">2022-06-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 551 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -102,6 +102,9 @@
   <ul>
     <li><a href="#svi">SVI</a></li>
     <li><a href="#接口模式">接口模式</a></li>
+    <li><a href="#单臂路由">单臂路由</a></li>
+    <li><a href="#port-link-mode-bridgeroute">port link-mode bridge/route</a></li>
+    <li><a href="#combo-enable-copperfiber">combo enable copper/fiber</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="svi">SVI</h2>
@@ -118,6 +121,18 @@ ip address 192.168.1.1 255.255.255.0 seconfary</p>
 &ndash;<a href="https://www.cnblogs.com/kscnchina/p/3277401.html" target="_blank" rel="noopener noreffer">https://www.cnblogs.com/kscnchina/p/3277401.html</a></p>
 <h2 id="接口模式">接口模式</h2>
 <p>二层接口有access、trunk和hybrid模式；三层接口没有这三种模式。</p>
+<h2 id="单臂路由">单臂路由</h2>
+<p>当只有二层交换机时，又要实现不同vlan间通信时，需要用到单臂路由技术。</p>
+<h2 id="port-link-mode-bridgeroute">port link-mode bridge/route</h2>
+<p>出现在华三网络设备中。<br>
+port link-mode命令用来切换端口的工作模式。<br>
+bridge：工作在二层模式（一般交换机默认是二层）<br>
+route：工作在三层路由口模式（一般路由器默认是三层路由模式）</p>
+<h2 id="combo-enable-copperfiber">combo enable copper/fiber</h2>
+<p>出现在华三网络设备中。<br>
+Combo 接口是一个逻辑接口，一个 Combo 接口对应设备面板上一个电口和一个光口。电口与其对应的光口是光电复用关系，两者不能同时工作（当激活其中的一个接口时，另一个接口就自动处于禁用状态），用户可根据组网需求选择使用电口或光口。<br>
+combo enable copper 电口被激活<br>
+combo enable fiber 光口被激活</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%89%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络","wordcount":  493 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络","wordcount":  670 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E5%8D%8E%E4%B8%89%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html\/","datePublished": "2022-06-16T23:15:18+08:00","dateModified": "2022-06-16T23:15:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">华三命令参考</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 493 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 670 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -103,6 +103,16 @@
     <li><a href="#1scf安全集群架构">1.SCF（安全集群架构）</a>
       <ul>
         <li><a href="#举例">举例：</a></li>
+      </ul>
+    </li>
+    <li><a href="#链路聚合">链路聚合</a>
+      <ul>
+        <li><a href="#二层静态聚合">二层静态聚合</a></li>
+        <li><a href="#二层动态聚合">二层动态聚合</a></li>
+        <li><a href="#二层聚合负载分担">二层聚合负载分担</a></li>
+        <li><a href="#二层聚合边缘端口">二层聚合边缘端口</a></li>
+        <li><a href="#三层静态聚合">三层静态聚合</a></li>
+        <li><a href="#三层动态聚合">三层动态聚合</a></li>
       </ul>
     </li>
   </ul>
@@ -227,7 +237,61 @@
 </span></span><span class="line"><span class="cl">undo shutdown
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h2 id="链路聚合">链路聚合</h2>
+<h3 id="二层静态聚合">二层静态聚合</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[SWB]int bagg 1
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]qu
+</span></span><span class="line"><span class="cl">[SWB]int range g1/0/1 to g1/0/3
+</span></span><span class="line"><span class="cl">[SWB-if-range]port link-aggregation group 1
+</span></span><span class="line"><span class="cl">[SWB-if-range]qu
+</span></span><span class="line"><span class="cl">[SWB]int bagg 1
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]port link-type trunk
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]port trunk permit vlan 10 20
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意：必须先创建bagg端口，再加入现有端口，最后设置bagg端口属性。加入现有端口和设置bagg端口属性的顺序不能颠倒。</p>
+<h3 id="二层动态聚合">二层动态聚合</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[SWB]int bagg 1
+</span></span><span class="line"><span class="cl">[SWB]link-aggregation mode dynamic
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]qu
+</span></span><span class="line"><span class="cl">[SWB]int range g1/0/1 to g1/0/3
+</span></span><span class="line"><span class="cl">[SWB-if-range]port link-aggregation group 1
+</span></span><span class="line"><span class="cl">[SWB-if-range]qu
+</span></span><span class="line"><span class="cl">[SWB]int bagg 1
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]port link-type trunk
+</span></span><span class="line"><span class="cl">[SWB-Bridge-Aggregation1]port trunk permit vlan 10 20
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="二层聚合负载分担">二层聚合负载分担</h3>
+<h3 id="二层聚合边缘端口">二层聚合边缘端口</h3>
+<h3 id="三层静态聚合">三层静态聚合</h3>
+<h3 id="三层动态聚合">三层动态聚合</h3>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

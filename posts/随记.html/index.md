@@ -20,3 +20,19 @@ ip address 192.168.1.1 255.255.255.0 seconfary
 ## 接口模式
 二层接口有access、trunk和hybrid模式；三层接口没有这三种模式。  
 
+## 单臂路由
+当只有二层交换机时，又要实现不同vlan间通信时，需要用到单臂路由技术。
+
+## port link-mode bridge/route
+出现在华三网络设备中。  
+port link-mode命令用来切换端口的工作模式。  
+bridge：工作在二层模式（一般交换机默认是二层）  
+route：工作在三层路由口模式（一般路由器默认是三层路由模式）
+
+## combo enable copper/fiber
+出现在华三网络设备中。  
+Combo 接口是一个逻辑接口，一个 Combo 接口对应设备面板上一个电口和一个光口。电口与其对应的光口是光电复用关系，两者不能同时工作（当激活其中的一个接口时，另一个接口就自动处于禁用状态），用户可根据组网需求选择使用电口或光口。  
+combo enable copper 电口被激活  
+combo enable fiber 光口被激活  
+
+
