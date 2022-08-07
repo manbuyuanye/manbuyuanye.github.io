@@ -1,4 +1,4 @@
-# Sbin和bin文件区别
+# sbin和bin文件区别
 
 
 /sbin,/bin,/usr/sbin,/usr/bin的区别  
