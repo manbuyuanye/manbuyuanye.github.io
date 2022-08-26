@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  5485 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, IGMP, 组播","wordcount":  6598 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BB%84%E6%92%AD%E5%92%8Cigmp.html\/","datePublished": "2022-05-15T15:29:37+08:00","dateModified": "2022-05-15T15:29:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,8 +91,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">组播和IGMP</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5485 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6598 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -131,6 +131,7 @@
       </ul>
     </li>
     <li><a href="#总结">总结</a></li>
+    <li><a href="#hcie内容">HCIE内容</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="组播">组播</h2>
@@ -613,6 +614,37 @@ IGMP有诸多特性帮助IGMP在网络中高效运行：<br>
 IGMP Snooping：解决在以太网络中组播数据跨组播组泛洪的问题。<br>
 IGMP SSM Mapping：解决IGMPv1与IGMPv2组成员不能接入SSM组播网络的问题。<br>
 IGMP Proxy：解决大量组播组成员频繁上下线导致，IGMP查询器压力过大的问题。</p>
+<h2 id="hcie内容">HCIE内容</h2>
+<p>1、组播/多播是什么，相比单播广播，组播有什么区别？<br>
+Multicast Group<br>
+Unicast<br>
+Broadcast 255.255.255.255</p>
+<p>OSPF &ndash;目的地址224.0.0.5  &ndash;ospf建立在组播基础上</p>
+<p>BGP &ndash;建立在TCP基础上 &ndash;TCP只支持单播</p>
+<p>RIPv1 &ndash;单播</p>
+<p>组播：OSPF、RIPv2、EIGRP、ISIS、（LDP？）</p>
+<p>组播流量一般只在本网络内转发，不能跨网络转发（例如跨路由器接口）。
+但是，当园区内所有路由器启用**组播动态路由选择协议（PIM）**后，组播流量可以在一个园区内转发。组播一般是单向的，组播接收者收到组播信息后，一般不回复。</p>
+<p>广播流量只能在本网络内转发。</p>
+<p>2、PIM</p>
+<p>PIM-DM的基本原理如下：</p>
+<p>★PIM-DM假设网络中的每个子网都存在至少一个组播组成员，因此组播数据将被扩散（Flooding）到网络中的所有节点。然后，PIM-DM对没有组播数据转发的分支进行剪枝（Prune），只保留包含接收者的分支。这种“扩散—剪枝”现象周期性地发生，被剪枝的分支也可以周期性地恢复成转发状态。</p>
+<p>★当被剪枝分支的节点上出现了组播组的成员时，为了减少该节点恢复成转发状态所需的时间，PIM-DM使用嫁接（Graft）机制主动恢复其对组播数据的转发。</p>
+<p>一般说来，密集模式下数据包的转发路径是有源树（Source Tree，即以组播源为“根”、组播组成员为“枝叶”的一棵转发树）。由于有源树使用的是从组播源到接收者的最短路径，因此也称为最短路径树（Shortest Path Tree，SPT）。</p>
+<p>PIM-SM的基本原理如下：</p>
+<p>★PIM-SM假设所有主机都不需要接收组播数据，只向明确提出需要组播数据的主机转发。PIM-SM实现组播转发的核心任务就是构造并维护RPT（Rendezvous Point Tree，共享树或汇集树），RPT选择PIM域中某台路由器作为公用的根节点RP（Rendezvous Point，汇集点），组播数据通过RP沿着RPT转发给接收者；</p>
+<p>★连接接收者的路由器向某组播组对应的RP发送加入报文（Join Message），该报文被逐跳送达RP，所经过的路径就形成了RPT的分支；</p>
+<p>★组播源如果要向某组播组发送组播数据，首先由与组播源侧DR（Designated Router，指定路由器）负责向RP进行注册，把注册报文（Register Message）通过单播方式发送给RP，该报文到达RP后触发建立SPT。之后组播源把组播数据沿着SPT发向RP，当组播数据到达RP后，被复制并沿着RPT发送给接收者。</p>
+<p>&ndash;参考http://www.h3c.com/cn/d_200805/605843_30003_0.htm</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/08/09/ACtew4Xc2Iujlaf.png"
+        data-srcset="https://s2.loli.net/2022/08/09/ACtew4Xc2Iujlaf.png, https://s2.loli.net/2022/08/09/ACtew4Xc2Iujlaf.png 1.5x, https://s2.loli.net/2022/08/09/ACtew4Xc2Iujlaf.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/08/09/ACtew4Xc2Iujlaf.png"
+        title="PIM协议无关组播.png" /></p>
+<p>（S，G）表项：组播源、组播组、入接口、出接口</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
