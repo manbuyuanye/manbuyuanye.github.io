@@ -68,10 +68,15 @@ trunkport ethernet 0/0/1 to 0/0/3
 port link-type trunk
 port trunk allow pass vlan 10,20,30
 ```
-3.2 LACP静态
+3.2 LACP静态  
 ```
-
+int eth-trunk 1
+mode lacp-static
+trunkport ethernet 0/0/1 to 0/0/3
+port link-type trunk
+port trunk allow pass vlan 10,20,30
 ```
+LACP静态需要交换机支持。  
 3.3 LACP动态
 ```
 太灵活，不推荐。
