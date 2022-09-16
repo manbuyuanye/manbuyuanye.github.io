@@ -10,6 +10,6 @@
     <pubDate>Wed, 11 May 2022 00:27:16 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B.html/</guid>
-    <description><![CDATA[1、登录 vty登录 配置aaa用户 1 2 3 4 5 6 aaa local-user sshuser password cipher password123 local-user sshuser privilege level 15 local-user sshuser service-type ssh terminal https local-user sshuser idle-timeout 10 ssh user sshuser authentication-type password 配置ssh 1 2 stelnet server enable rsa local-key-pair create 配置vty接口 1 2]]></description>
+    <description><![CDATA[1、登录 vty登录 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 配置aaa用户名密码 aaa local-user sshuser password cipher password123 local-user sshuser privilege level 15 local-user sshuser service-type ssh terminal https local-user sshuser idle-timeout 10 ssh user sshuser authentication-type password 配置ssh stelnet server enable]]></description>
 </item></channel>
 </rss>
