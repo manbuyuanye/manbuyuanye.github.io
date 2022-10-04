@@ -56,9 +56,9 @@ port link-type access
 port link-type trunk
 port link-type hybrid
 ```
-### 3、设备聚合模式
+## 3、设备聚合模式
 
-### 4、链路负载均衡
+## 4、链路负载均衡
 一般适用于南北网络设备之间  
 3.1 手工负载均衡模式
 ```
@@ -75,6 +75,7 @@ mode lacp-static
 trunkport ethernet 0/0/1 to 0/0/3
 port link-type trunk
 port trunk allow pass vlan 10,20,30
+bpdu enable
 ```
 LACP静态需要交换机支持。  
 3.3 LACP动态

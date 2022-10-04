@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  427 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 命令","wordcount":  430 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B.html\/","datePublished": "2022-05-11T00:27:16+08:00","dateModified": "2022-05-11T00:27:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,7 +91,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">网络配置实例</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 427 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 430 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -106,12 +106,9 @@
         <li><a href="#console登录配置">console登录配置</a></li>
       </ul>
     </li>
-    <li><a href="#2端口范围设置">2、端口范围设置</a>
-      <ul>
-        <li><a href="#3设备聚合模式">3、设备聚合模式</a></li>
-        <li><a href="#4链路负载均衡">4、链路负载均衡</a></li>
-      </ul>
-    </li>
+    <li><a href="#2端口范围设置">2、端口范围设置</a></li>
+    <li><a href="#3设备聚合模式">3、设备聚合模式</a></li>
+    <li><a href="#4链路负载均衡">4、链路负载均衡</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="1登录">1、登录</h2>
@@ -220,8 +217,8 @@
 </span></span><span class="line"><span class="cl">port link-type hybrid
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="3设备聚合模式">3、设备聚合模式</h3>
-<h3 id="4链路负载均衡">4、链路负载均衡</h3>
+</div><h2 id="3设备聚合模式">3、设备聚合模式</h2>
+<h2 id="4链路负载均衡">4、链路负载均衡</h2>
 <p>一般适用于南北网络设备之间<br>
 3.1 手工负载均衡模式</p>
 <div class="highlight"><div class="chroma">
@@ -248,6 +245,7 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int eth-trunk 1
@@ -255,6 +253,7 @@
 </span></span><span class="line"><span class="cl">trunkport ethernet 0/0/1 to 0/0/3
 </span></span><span class="line"><span class="cl">port link-type trunk
 </span></span><span class="line"><span class="cl">port trunk allow pass vlan 10,20,30
+</span></span><span class="line"><span class="cl">bpdu enable
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>LACP静态需要交换机支持。<br>
@@ -295,7 +294,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://manbuyuanye.github.io/" target="_blank">漫步原野</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
