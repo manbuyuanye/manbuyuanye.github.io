@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>网络小记 - 漫步原野</title><meta name="Description" content="漫步原野个人博客"><meta property="og:title" content="网络小记" />
-<meta property="og:description" content="[toc] 1、DHCP续租 有50%和87.5%两个时间点。 客户端获得DHCP租约后，开始工作。租期达到50%时，对目前的DHCP服务器发送DHCP R" />
+<meta property="og:description" content="1、路由协议 1.1 路由表 路由表是基于IPv4或IPv6的指导网络流量走向的数据表。 基本参数：目的网络、来源、下一跳、出接口、优先级、度量值 路由优" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" /><meta property="og:image" content="https://manbuyuanye.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-26T00:15:25+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://manbuyuanye.github.io/logo.png"/>
 
 <meta name="twitter:title" content="网络小记"/>
-<meta name="twitter:description" content="[toc] 1、DHCP续租 有50%和87.5%两个时间点。 客户端获得DHCP租约后，开始工作。租期达到50%时，对目前的DHCP服务器发送DHCP R"/>
+<meta name="twitter:description" content="1、路由协议 1.1 路由表 路由表是基于IPv4或IPv6的指导网络流量走向的数据表。 基本参数：目的网络、来源、下一跳、出接口、优先级、度量值 路由优"/>
 <meta name="application-name" content="漫步原野">
 <meta name="apple-mobile-web-app-title" content="漫步原野"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://s2.loli.net/2022/05/01/AlIfMP4cp5G2xj6.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" /><link rel="prev" href="https://manbuyuanye.github.io/posts/sbin%E5%92%8Cbin%E6%96%87%E4%BB%B6%E5%8C%BA%E5%88%AB.html/" /><link rel="next" href="https://manbuyuanye.github.io/posts/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%A6%81%E7%B4%A0.html/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html\/"
-        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络, 考试","wordcount":  201 ,
+        },"image": ["https:\/\/manbuyuanye.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "网络","wordcount":  1195 ,
         "url": "https:\/\/manbuyuanye.github.io\/posts\/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html\/","datePublished": "2022-08-26T00:15:25+08:00","dateModified": "2022-08-26T00:15:25+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "漫步原野","logo": "https:\/\/manbuyuanye.github.io\/images\/avatar.png"},"author": {
@@ -91,16 +91,399 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">网络小记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://manbuyuanye.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>漫步原野</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw"></i>网络</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-26">2022-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 201 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-26">2022-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1195 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>[toc]
-1、DHCP续租</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-路由表">1.1 路由表</a></li>
+    <li><a href="#12-直连路由">1.2 直连路由</a></li>
+    <li><a href="#13-静态路由">1.3 静态路由</a></li>
+    <li><a href="#14-ospf">1.4 OSPF</a></li>
+    <li><a href="#15-bgp">1.5 BGP</a>
+      <ul>
+        <li><a href="#ibgp">IBGP</a></li>
+        <li><a href="#ebgp">EBGP</a></li>
+      </ul>
+    </li>
+    <li><a href="#16-igrpeigrp">1.6 IGRP/EIGRP</a></li>
+    <li><a href="#17-策略路由">1.7 策略路由</a></li>
+    <li><a href="#18-rip">1.8 RIP</a></li>
+    <li><a href="#19-is-is">1.9 IS-IS</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-gre">2.1 GRE</a></li>
+    <li><a href="#22-ipsec">2.2 IPsec</a></li>
+    <li><a href="#23-ssl-vpn">2.3 SSL VPN</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-mpls-vpn">3.1 MPLS VPN</a></li>
+    <li><a href="#32-vxlan">3.2 VxLAN</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#41-stp">4.1 STP</a></li>
+    <li><a href="#42-rstp">4.2 RSTP</a></li>
+    <li><a href="#43-mstp">4.3 MSTP</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#51-设备级">5.1 设备级</a>
+      <ul>
+        <li><a href="#堆叠">堆叠</a></li>
+        <li><a href="#52-mlag">5.2 MLag</a></li>
+        <li><a href="#53-vrrp">5.3 VRRP</a></li>
+      </ul>
+    </li>
+    <li><a href="#52-链路级">5.2 链路级</a>
+      <ul>
+        <li><a href="#手工链路聚合">手工链路聚合</a></li>
+        <li><a href="#静态链路聚合">静态链路聚合</a></li>
+        <li><a href="#动态链路聚合">动态链路聚合</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="1路由协议">1、路由协议</h1>
+<h2 id="11-路由表">1.1 路由表</h2>
+<p>路由表是基于IPv4或IPv6的指导网络流量走向的数据表。<br>
+基本参数：目的网络、来源、下一跳、出接口、优先级、度量值<br>
+路由优先级： </p>
+<table>
+<thead>
+<tr>
+<th>路由协议</th>
+<th>外部优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FDirect</td>
+<td>0</td>
+</tr>
+<tr>
+<td>OSPF</td>
+<td>10</td>
+</tr>
+<tr>
+<td>IS-IS</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Static</td>
+<td>60</td>
+</tr>
+<tr>
+<td>RIP</td>
+<td>100</td>
+</tr>
+<tr>
+<td>OSPF ASE</td>
+<td>150</td>
+</tr>
+<tr>
+<td>OSPF NSSA</td>
+<td>150</td>
+</tr>
+<tr>
+<td>IBGP</td>
+<td>255</td>
+</tr>
+<tr>
+<td>EBGP</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-直连路由">1.2 直连路由</h2>
+<h2 id="13-静态路由">1.3 静态路由</h2>
+<p>静态路由是手工填写的路由表，一般指定了目的网络、下一跳，出接口、优先级可以按需配置。</p>
+<h2 id="14-ospf">1.4 OSPF</h2>
+<h2 id="15-bgp">1.5 BGP</h2>
+<h3 id="ibgp">IBGP</h3>
+<h3 id="ebgp">EBGP</h3>
+<h2 id="16-igrpeigrp">1.6 IGRP/EIGRP</h2>
+<h2 id="17-策略路由">1.7 策略路由</h2>
+<h2 id="18-rip">1.8 RIP</h2>
+<h2 id="19-is-is">1.9 IS-IS</h2>
+<h1 id="2vpn">2、VPN</h1>
+<h2 id="21-gre">2.1 GRE</h2>
+<h2 id="22-ipsec">2.2 IPsec</h2>
+<h2 id="23-ssl-vpn">2.3 SSL VPN</h2>
+<h1 id="3隧道技术">3、隧道技术</h1>
+<h2 id="31-mpls-vpn">3.1 MPLS VPN</h2>
+<h2 id="32-vxlan">3.2 VxLAN</h2>
+<h1 id="4stp">4、STP</h1>
+<h2 id="41-stp">4.1 STP</h2>
+<p>1、STP的角色和状态<br>
+STP的设备角色：根桥、非根桥。<br>
+STP的端口角色：根端口、指定端口、预备端口。<br>
+STP的端口状态：init、blocking、listening、learning、forwarding、disable。</p>
+<p>2、STP实验1<br>
+实验拓扑：<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/11/26/T6uND1scWkoj7KH.png"
+        data-srcset="https://s2.loli.net/2022/11/26/T6uND1scWkoj7KH.png, https://s2.loli.net/2022/11/26/T6uND1scWkoj7KH.png 1.5x, https://s2.loli.net/2022/11/26/T6uND1scWkoj7KH.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/11/26/T6uND1scWkoj7KH.png"
+        title="STP.png" />
+实验配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AR1:
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/0
+</span></span><span class="line"><span class="cl"> ip address 192.168.10.1 255.255.255.0 
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> ip address 192.168.20.1 255.255.255.0 
+</span></span><span class="line"><span class="cl">interface LoopBack0
+</span></span><span class="line"><span class="cl"> ip address 1.1.1.1 255.255.255.255 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSW1：
+</span></span><span class="line"><span class="cl">stp mode stp
+</span></span><span class="line"><span class="cl">stp instance 0 root primary
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 10
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/2
+</span></span><span class="line"><span class="cl"> port link-type trunk
+</span></span><span class="line"><span class="cl"> port trunk allow-pass vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/3
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 10
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSW2：
+</span></span><span class="line"><span class="cl">stp mode stp
+</span></span><span class="line"><span class="cl">stp instance 0 root secondary
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 20
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/2
+</span></span><span class="line"><span class="cl"> port link-type trunk
+</span></span><span class="line"><span class="cl"> port trunk allow-pass vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/3
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 20
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSW3：      
+</span></span><span class="line"><span class="cl">stp mode stp
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 10
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/2
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 20
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/3
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 10
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl"> stp edged-port enable
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/4
+</span></span><span class="line"><span class="cl"> port hybrid pvid vlan 20
+</span></span><span class="line"><span class="cl"> port hybrid untagged vlan 10 20
+</span></span><span class="line"><span class="cl"> stp edged-port enable
+</span></span><span class="line"><span class="cl">说明：   
+</span></span><span class="line"><span class="cl">stp edge-port作用：使端口变为边缘端口，不参与stp计算，加快stp收敛速度。  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>STP状态：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;LSW1&gt;dis stp bri
+</span></span><span class="line"><span class="cl"> MSTID  Port                        Role  STP State     Protection
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/1        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/2        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/3        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">&lt;LSW2&gt;DIS STP BRI
+</span></span><span class="line"><span class="cl"> MSTID  Port                        Role  STP State     Protection
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/1        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/2        ROOT  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/3        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">&lt;LSW3&gt;DIS STP BRI
+</span></span><span class="line"><span class="cl"> MSTID  Port                        Role  STP State     Protection
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/1        ROOT  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/2        ALTE  DISCARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/3        DESI  FORWARDING      NONE
+</span></span><span class="line"><span class="cl">   0    GigabitEthernet0/0/4        DESI  FORWARDING      NONE
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实验结果：PC1和PC2到AR1通。</p>
+<p>3、STP实验2<br>
+实验拓扑：<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/11/26/NUFSbZavWEhQfVC.png"
+        data-srcset="https://s2.loli.net/2022/11/26/NUFSbZavWEhQfVC.png, https://s2.loli.net/2022/11/26/NUFSbZavWEhQfVC.png 1.5x, https://s2.loli.net/2022/11/26/NUFSbZavWEhQfVC.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/11/26/NUFSbZavWEhQfVC.png"
+        title="STP实验2.png" /><br>
+实验配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AR1-1：
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/0
+</span></span><span class="line"><span class="cl"> ip address 192.168.10.1 255.255.255.0 
+</span></span><span class="line"><span class="cl">interface LoopBack0
+</span></span><span class="line"><span class="cl"> ip address 1.1.1.1 255.255.255.255 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSW1-1：
+</span></span><span class="line"><span class="cl">stp disable
+</span></span><span class="line"><span class="cl">interface Eth-Trunk1
+</span></span><span class="line"><span class="cl"> port link-type trunk
+</span></span><span class="line"><span class="cl"> port trunk allow-pass vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> port link-type access
+</span></span><span class="line"><span class="cl"> port default vlan 10
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/2
+</span></span><span class="line"><span class="cl"> eth-trunk 1
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/3
+</span></span><span class="line"><span class="cl"> eth-trunk 1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSW3-1：  
+</span></span><span class="line"><span class="cl">stp disable
+</span></span><span class="line"><span class="cl">interface Eth-Trunk1
+</span></span><span class="line"><span class="cl"> port link-type trunk
+</span></span><span class="line"><span class="cl"> port trunk allow-pass vlan 10 20
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/1
+</span></span><span class="line"><span class="cl"> eth-trunk 1
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/2
+</span></span><span class="line"><span class="cl"> eth-trunk 1
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/3
+</span></span><span class="line"><span class="cl"> port link-type access
+</span></span><span class="line"><span class="cl"> port default vlan 10
+</span></span><span class="line"><span class="cl">interface GigabitEthernet0/0/4
+</span></span><span class="line"><span class="cl"> port link-type access
+</span></span><span class="line"><span class="cl"> port default vlan 20
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实验结果：PC1-1到AR1-1通，PC2-1到AR1-1不通。说明：链路聚合时，聚合的链路可以看作是一条链路，聚合的链路无需考虑成环问题。</p>
+<h2 id="42-rstp">4.2 RSTP</h2>
+<h2 id="43-mstp">4.3 MSTP</h2>
+<h1 id="5高可靠技术">5、高可靠技术</h1>
+<h2 id="51-设备级">5.1 设备级</h2>
+<h3 id="堆叠">堆叠</h3>
+<h3 id="52-mlag">5.2 MLag</h3>
+<h3 id="53-vrrp">5.3 VRRP</h3>
+<h2 id="52-链路级">5.2 链路级</h2>
+<h3 id="手工链路聚合">手工链路聚合</h3>
+<h3 id="静态链路聚合">静态链路聚合</h3>
+<h3 id="动态链路聚合">动态链路聚合</h3>
+<p>1、DHCP续租</p>
 <p>有50%和87.5%两个时间点。</p>
 <p>客户端获得DHCP租约后，开始工作。租期达到50%时，对目前的DHCP服务器发送DHCP Request以请求更新DHCP租约，若未得到回复，租期达到87.5%时，对网络内广播DHCP Discover，以请求其它DHCP服务器的租约。租期届满未收到任何回复，DHCP租约取消。大致过程如下：</p>
 <table>
@@ -133,13 +516,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记" data-hashtags="网络,考试"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-hashtag="网络"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记" data-hashtags="网络"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-hashtag="网络"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://manbuyuanye.github.io/posts/%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AE%B0.html/" data-title="网络小记"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>,&nbsp;<a href="/tags/%E8%80%83%E8%AF%95/">考试</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -150,7 +533,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://manbuyuanye.github.io/" target="_blank">漫步原野</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
